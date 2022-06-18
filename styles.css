@@ -162,15 +162,21 @@ a {
 
 }
 
-.projectCard:hover+.projectDescription {
+.projectCard:hover .projectDescription {
 
     display: flex;
 
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.projectCard:hover+.projectTitle {
+.projectCard:hover .projectTitle {
 
-    display: none;
+    animation: fadeOutAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
 
 }
 
@@ -179,6 +185,27 @@ a {
     justify-content: center;
     align-items: flex-start;
     z-index: 2;
+
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .projectDescription {
@@ -188,6 +215,8 @@ a {
     padding: 10px;
     z-index: 2222;
     display: none;
+    transition: all 1s ease-in-out;
+    padding: 50px;
 }
 
 .projectBackground {

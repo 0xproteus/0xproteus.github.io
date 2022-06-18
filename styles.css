@@ -8,11 +8,11 @@ body {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body {
-    background: linear-gradient(90deg, black 50%, grey 50%);
+    background: linear-gradient(90deg, #0a0a0a 50%, #161616 50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,6 +28,14 @@ a {
     text-decoration: none;
 }
 
+.socialsSVG:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+.arrowSVG:hover {
+    filter: drop-shadow(0px 5px 6px #39b5fb);
+}
+
 .socials {
     display: flex;
     flex-direction: row;
@@ -41,6 +49,11 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    background: #d3d3d361;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.19);
+    backdrop-filter: blur(3px);
+    padding: 20px;
 }
 
 .upperPage {
@@ -66,5 +79,129 @@ a {
     border: none;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 500px;
+    height: 300px;
+    /* border: 1px solid #f1f1f1; */
+    margin: 25px;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    border-radius: 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+}
+
+.projectRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.projectCard {
+    background-color: black;
+    color: white;
+    width: 500px;
+    height: 300px;
+    /* border: 1px solid #f1f1f1; */
+    margin: 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+
+}
+
+.projectCard:hover .projectBackground {
+
+    filter: blur(5px);
+
+}
+
+.projectCard:hover+.projectDescription {
+
+    display: flex;
+
+}
+
+.projectCard:hover+.projectTitle {
+
+    display: none;
+
+}
+
+.projectTitle {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.projectDescription {
+    justify-content: center;
+    align-items: flex-start;
+    text-align: justify;
+    padding: 10px;
+    z-index: 2222;
+    display: none;
+}
+
+.projectBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("opener_cropped.png");
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    /* filter: brightness(0.7); */
+    transition: all 0.15s ease-in-out;
+}
+
+.projectContent {
+    z-index: 2222;
 }
